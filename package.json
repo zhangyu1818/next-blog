@@ -1,0 +1,33 @@
+{
+  "name": "next-blog",
+  "version": "0.0.1",
+  "description": "next.js blog",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=dev node server.js",
+    "build": "next build",
+    "start": "npm run build | cross-env NODE_ENV=production node server.js"
+  },
+  "author": "zhangyu1818",
+  "license": "MIT",
+  "dependencies": {
+    "@mapbox/rehype-prism": "latest",
+    "@zeit/next-sass": "latest",
+    "classnames": "^2.2.6",
+    "dayjs": "^1.8.15",
+    "express": "^4.17.1",
+    "next": "latest",
+    "node-sass": "latest",
+    "react": "latest",
+    "react-document-title": "^2.0.3",
+    "react-dom": "latest",
+    "react-typography": "latest",
+    "typography": "latest",
+    "typography-theme-wordpress-2016": "latest"
+  },
+  "devDependencies": {
+    "@mdx-js/loader": "latest",
+    "@next/mdx": "latest",
+    "cross-env": "^5.2.0"
+  }
+}
