@@ -4,3 +4,4 @@ node_modules
 pages/posts/*
 static/assets/*
 !.gitkeep
+posts.json

@@ -4,7 +4,6 @@ body {
   --footer-link: #666;
   color: var(--textNormal);
   font-family: youyuan, -apple-system, "Microsoft YaHei UI", sans-serif;
-  transition: color 0.2s ease-out 0s, background 0.2s ease-out 0s;
   &.dark {
     -webkit-font-smoothing: antialiased;
     --bg: #282c34;

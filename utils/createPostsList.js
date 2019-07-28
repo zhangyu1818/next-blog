@@ -17,7 +17,7 @@ const createPostsList = async () => {
   // 删除旧post
   const oldPostsPath = path.resolve(__dirname, "../pages/posts");
   const oldPosts = await readDirAsync(oldPostsPath);
-  oldPosts.forEach(file => fs.unlinkSync(path.resolve(oldPostsPath, file)));
+  oldPosts.forEach(file => file !== ".gitkeep" && fs.unlinkSync(path.resolve(oldPostsPath, file)));
 
   // 创建新post
   const dirPath = path.resolve(__dirname, "../blog");
@@ -30,7 +30,7 @@ const createPostsList = async () => {
       const filePath = path.resolve(dirPath, file);
       const { ctime } = fs.statSync(filePath);
       let content = fs.readFileSync(filePath, "utf-8");
-      content = content.replace(/!\[(.*)\]\(\.{0,2}\/?(.*)\)/ig, "![$1](/static/$2)");
+      content = content.replace(/!\[(.*)\]\(\.{0,2}\/?(.*)\)/gi, "![$1](/static/$2)");
       const noExt = path.basename(file, ".mdx");
       return {
         createTime: ctime,
@@ -56,7 +56,7 @@ const createPostsList = async () => {
   // 删除旧图片
   const assetsPath = path.resolve(__dirname, "../static/assets");
   const oldAssets = await readDirAsync(assetsPath);
-  oldAssets.forEach(file => fs.unlinkSync(path.resolve(assetsPath, file)));
+  oldAssets.forEach(file => file !== ".gitkeep" && fs.unlinkSync(path.resolve(assetsPath, file)));
   // 复制新图片
   const blogPostAssetsPath = path.resolve(__dirname, "../blog/assets");
   const blogPostAssets = await readDirAsync(blogPostAssetsPath);
